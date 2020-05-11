@@ -3,3 +3,102 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  background: #17181a;
+  font-family: "Montserrat", sans-serif;
+}
+
+#logo {
+  color: #f0ffff;
+  font-family: "Abril Fatface", sans-serif;
+}
+
+.nav-header {
+  min-height: 10vh;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #f0ffff;
+  width: 80%;
+  margin: auto;
+  padding: 2rem 0rem;
+}
+
+.line1,
+.line2 {
+  width: 3rem;
+  height: 0.2rem;
+  margin: 0.4rem;
+  background: #f0ffff;
+  pointer-events: none;
+}
+
+.slide {
+  min-height: 100vh;
+  margin: 0 auto 0 auto;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #f0ffff;
+  background: #17181a;
+}
+
+.hero-desc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-basis: 25rem;
+  padding-left: 5rem;
+  position: relative;
+}
+
+.hero-desc h2 {
+  font-family: "Abril Fatface", sans-serif;
+  font-size: 5rem;
+}
+
+.hero-desc p {
+  padding: 3rem 0rem;
+  font-size: 1.5rem;
+  color: #f0ffff;
+}
+
+.hero-img {
+  position: relative;
+  flex: 1;
+  flex-basis: 25rem;
+}
+
+.hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mountain-span {
+  color: #567ce4;
+}
+
+.hike -span {
+  color: #a76ee7;
+}
+
+.fashion-span {
+  color: #ff8b5d;
+}
+
+.explore {
+  padding: 1rem 2rem;
+  background: none;
+  color: #f0ffff;
+  border: #f0ffff 1px solid;
+  font-size: 1rem;
+  text-decoration: none;
+  align-self: flex-start;
+  cursor: pointer;
+}
