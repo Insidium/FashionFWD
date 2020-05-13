@@ -25,6 +25,7 @@ body {
   width: 80%;
   margin: auto;
   padding: 2rem 0rem;
+  z-index: 2;
 }
 
 .line1,
@@ -172,7 +173,7 @@ body {
 }
 
 .cursor.nav-active {
-  background: #f0ffff;
+  background: #458d8d;
   transform: scale(2);
 }
 
@@ -218,4 +219,8 @@ body {
 
 .scrollmagic-pin-spacer {
   position: static !important;
+}
+
+body.hide {
+  overflow: hidden;
 }

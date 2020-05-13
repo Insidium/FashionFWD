@@ -80,9 +80,11 @@ function animateSlides() {
 }
 
 //target class "cursor"
-let mouse = document.querySelector(".cursor");
+const mouse = document.querySelector(".cursor");
 //target span in mouseover
-let mouseText = mouse.querySelector("span");
+const mouseText = mouse.querySelector("span");
+//target burger menu
+const burger = document.querySelector(".burger");
 
 //cursor circle highlighting animation
 function cursor(e) {
@@ -114,8 +116,37 @@ function activeCursor(e) {
   }
 }
 
-//listen for mouse movement and cursor function on window
+//toggle nav menu overlay
+function navToggle(e) {
+  //if target isn't active, add the class to it, else remove
+  if (!e.target.classList.contains("active")) {
+    e.target.classList.add("active");
+    //change burger lines to black and rotate into an X
+    gsap.to(".line1", 0.5, { rotate: "45", y: 5, background: "#000" });
+    gsap.to(".line2", 0.5, { rotate: "-45", y: -5, background: "#000" });
+    //change logo colour to black
+    gsap.to("#logo", 1, { color: "#000" });
+    //expand out the nav menu overlay
+    gsap.to(".nav-bar", 1, { clipPath: "circle(2500px at 100% -10%" });
+    //add hide class to avoid scroll in nav menu
+    document.body.classList.add("hide");
+  } else {
+    e.target.classList.remove("active");
+    //change burger lines back to original
+    gsap.to(".line1", 0.5, { rotate: "0", y: 0, background: "#f0ffff" });
+    gsap.to(".line2", 0.5, { rotate: "0", y: 0, background: "#f0ffff" });
+    //change logo colour to original
+    gsap.to("#logo", 1, { color: "#f0ffff" });
+    //retract the nav menu overlay
+    gsap.to(".nav-bar", 1, { clipPath: "circle(50px at 100% -10%" });
+    //remove hide class
+    document.body.classList.remove("hide");
+  }
+}
+
+//event listeners
 window.addEventListener("mousemove", cursor);
 window.addEventListener("mouseover", activeCursor);
+burger.addEventListener("click", navToggle);
 
 animateSlides();
