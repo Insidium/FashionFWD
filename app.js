@@ -41,11 +41,11 @@ function animateSlides() {
       //set to run on each slide
       .setTween(slideTl)
       //adding white debug indicators for scenes (named slide)
-      .addIndicators({
-        colorStart: "white",
-        colorTrigger: "white",
-        name: "slide",
-      })
+      // .addIndicators({
+      //   colorStart: "white",
+      //   colorTrigger: "white",
+      //   name: "slide",
+      // })
       .addTo(controller);
 
     //new animation
@@ -66,12 +66,12 @@ function animateSlides() {
       duration: "100%",
       triggerHook: 0,
     })
-      .addIndicators({
-        colorStart: "white",
-        colorTrigger: "white",
-        name: "page",
-        indent: 200,
-      })
+      // .addIndicators({
+      //   colorStart: "white",
+      //   colorTrigger: "white",
+      //   name: "page",
+      //   indent: 200,
+      // })
       //setting pin anchors scroll in place so it looks like animations are occuring on the spot
       .setPin(slide, { pushFollowers: false })
       .setTween(pageTl)
