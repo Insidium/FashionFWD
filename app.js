@@ -79,4 +79,43 @@ function animateSlides() {
   });
 }
 
+//target class "cursor"
+let mouse = document.querySelector(".cursor");
+//target span in mouseover
+let mouseText = mouse.querySelector("span");
+
+//cursor circle highlighting animation
+function cursor(e) {
+  //add style to top and left, Y and X axis respectively
+  mouse.style.top = e.pageY + "px";
+  mouse.style.left = e.pageX + "px";
+}
+
+function activeCursor(e) {
+  //the target of the mouse is the item moused over
+  const item = e.target;
+  //add active classes for animations on mouseover
+  if (item.id === "logo" || item.classList.contains("burger")) {
+    mouse.classList.add("nav-active");
+  } else {
+    mouse.classList.remove("nav-active");
+  }
+  if (item.classList.contains("explore")) {
+    mouse.classList.add("explore-active");
+    //add backgroun colour fill up effect
+    gsap.to(".title-swipe", 1, { y: "0%" });
+    //show some mouse innertext
+    mouseText.innerText = "Tap";
+  } else {
+    mouse.classList.remove("explore-active");
+    //remove background colour fill up effect
+    gsap.to(".title-swipe", 1, { y: "100%" });
+    mouseText.innerText = "";
+  }
+}
+
+//listen for mouse movement and cursor function on window
+window.addEventListener("mousemove", cursor);
+window.addEventListener("mouseover", activeCursor);
+
 animateSlides();
