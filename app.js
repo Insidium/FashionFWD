@@ -1,6 +1,7 @@
 let controller;
 let slideScene;
 let pageScene;
+let detailScene;
 
 function animateSlides() {
   //initialise Controller
@@ -170,12 +171,18 @@ barba.init({
       beforeEnter() {
         //reset href of logo in nav to home page after transition
         logo.href = '../index.html';
+        detailAnimation();
         gsap.fromTo(
           '.nav-header',
           1,
           { y: '100%' },
           { y: '0%', ease: 'power2.inOut' }
         );
+      },
+      //get rid of the following before page is left
+      beforeLeave() {
+        controller.destroy();
+        detailScene.destroy();
       },
     },
   ],
@@ -213,6 +220,27 @@ barba.init({
   ],
 });
 
+//add ScrollMagic effects for fashion sub page
+function detailAnimation() {
+  controller = new ScrollMagic.Controller();
+  const slides = document.querySelectorAll('.detail-slide');
+  //add animation for each slide, similar to home page
+  slides.forEach((slide, index, slides) => {
+    const slideTl = gsap.timeline({ defaults: { duration: 1 } });
+    let nextSlide = slides.length - 1 === index ? 'end' : slides[index + 1];
+    slideTl.fromTo(slide, { opacity: 1 }, { opacity: 0 });
+    slideTl.fromTo(nextSlide, { opacity: 0 }, { opacity: 1 }, '-=1');
+    //create new detail scene
+    detailScene = new ScrollMagic.Scene({
+      triggerElement: slide,
+      duration: '100%',
+      triggerHook: 0,
+    })
+      .setPin(slide, { pushFollowers: false })
+      .setTween(slideTl)
+      .addTo(controller);
+  });
+}
 //event listeners
 window.addEventListener('mousemove', cursor);
 window.addEventListener('mouseover', activeCursor);
