@@ -259,7 +259,7 @@ body.hide {
 }
 
 .fashion-img img {
-  width: 100%;
+  width: 90%;
   height: 100%;
   object-fit: cover;
 }
@@ -321,23 +321,6 @@ body.hide {
 }
 
 /* Media Queries */
-
-@media screen and (max-width: 1500px) {
-  .hero-img {
-    height: 50vh;
-  }
-  .fashion-text h1 {
-    font-size: 2rem;
-    padding: 1rem 0rem;
-  }
-  .fashion-text p {
-    font-size: 1.2rem;
-  }
-  .fashion-img img {
-    height: 50vh;
-    object-position: top;
-  }
-}
 
 @media screen and (max-width: 1024px) {
   main {
