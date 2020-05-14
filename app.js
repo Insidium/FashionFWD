@@ -27,8 +27,6 @@ function animateSlides() {
     slideTl.fromTo(img, { scale: 2 }, { scale: 1 }, '-=1');
     //reveals text horiz from 0 to full width at 0.75 duration after above
     slideTl.fromTo(revealText, { x: '0%' }, { x: '100%' }, '-=0.75');
-    //reveals nav vertic from -100 to normal position at 0.5 duration after above
-    slideTl.fromTo(nav, { y: '-100%' }, { y: '0%' }, '-=0.5');
 
     //create scroll scene
     slideScene = new ScrollMagic.Scene({
@@ -172,12 +170,6 @@ barba.init({
         //reset href of logo in nav to home page after transition
         logo.href = '../index.html';
         detailAnimation();
-        gsap.fromTo(
-          '.nav-header',
-          1,
-          { y: '100%' },
-          { y: '0%', ease: 'power2.inOut' }
-        );
       },
       //get rid of the following before page is left
       beforeLeave() {
@@ -215,6 +207,14 @@ barba.init({
           { x: '100%', stagger: 0.25, onComplete: done }
         );
         tl.fromTo(next.container, 1, { opacity: 0 }, { opacity: 1 });
+        //animate nav bar and logo entering each page load
+        tl.fromTo(
+          '.nav-header',
+          1,
+          { y: '-100%' },
+          { y: '0%', ease: 'power2.inOut' },
+          '-=1.5'
+        );
       },
     },
   ],
