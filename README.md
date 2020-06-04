@@ -5,3 +5,5 @@ Dynamic fashion/style themed website demonstrating JavaScript animations and tra
 ![](./img/FashionFWD.jpg)
 
 **Tech: HTML, CSS, JS, ScrollMagic, barbaJS & GSAP**
+
+https://insidium.github.io/FashionFWD/
